@@ -16,11 +16,12 @@
 
 <hr>
 
-<div class="alert alert-danger">
+<div *ngIf="hayError"
+    class="alert alert-danger">
     No se encontró el término ABC
 </div>
 
-<div class="row">
+<div *ngIf="paises.length > 0"  class="row">
     <div class="col">
         <table class="table table-hover">
             <thead>
@@ -33,13 +34,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Bandera</td>
-                    <td>Nombre</td>
-                    <td>123124</td>
+                <tr *ngFor="let pais of paises; let i = index" >
+                    <td> {{ i + 1 }} </td>
                     <td>
-                        <a>link</a>
+                        <img class="small-flag" [src]="pais.flags.svg" >
+                    </td>
+                    <td> {{ pais.name.common }} </td>
+                    <td> {{ pais.population | number }} </td>
+                    <td>
+                        <a [routerLink]="['/pais', pais.alpha2Code]" >Ver...</a>
                     </td>
                 </tr>
             </tbody>
