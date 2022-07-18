@@ -17,7 +17,8 @@ export class VerPaisComponent implements OnInit {
   //Abans de inicialitzar el component
   constructor( 
     private activateRoute: ActivatedRoute,
-    private paisService: PaisService ) { }
+    private paisService: PaisService 
+    ) { }
 
   //Quan el component esta inicialitzat
   ngOnInit(): void {

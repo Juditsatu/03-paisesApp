@@ -20,7 +20,26 @@
                 <li class="list-group-item">
                     <strong>Población</strong> {{ pais.population | number }}
                 </li>
+                <li class="list-group-item">
+                    <strong>Código numérico</strong> {{ pais.ccn3 }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Código alpha2</strong> {{ pais.cca3 }}
+                </li>
             </ul>
         </div>
     </div>
+    <h3 class="mt-2">Traducciones</h3>
+    <div class="row">
+        <div class="col">
+            <span 
+            *ngFor="let translation of pais.translations | keyvalue "
+            class="badge bg-primary me-1">
+            {{ translation.value.official }}
+            </span>
+        </div>
+    </div>
+    <!-- <pre class="mt-5">
+        {{ pais | json}}
+    </pre> -->
 </ng-template>
