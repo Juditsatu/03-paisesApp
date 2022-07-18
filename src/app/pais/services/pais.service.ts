@@ -15,9 +15,17 @@ export class PaisService {
 
   //Important especificar l'interface de la API
   buscarPais(termino: string): Observable<Country[]> {
-
-    const url = `${this.apiUrl}/name/${termino}`;
+    const url = `${this.apiUrl}/name/${ termino }`;
     return this.http.get<Country[]>(url); //Retorna un array de paisos
-    
+  }
+
+  buscarCapital(termino: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/capital/${ termino }`;
+    return this.http.get<Country[]>(url); //Retorna un array de paisos
+  }
+
+  getPaisPorAlpha(id: string): Observable<Country> {
+    const url = `${this.apiUrl}/alpha/${ id }`;
+    return this.http.get<Country>(url); 
   }
 }
